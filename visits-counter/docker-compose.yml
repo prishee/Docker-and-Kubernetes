@@ -1,0 +1,19 @@
+# version of docker compose
+version: "3"
+
+# services to include
+services:
+  redis-server:
+    image: "redis"
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "80:8080"
+
+# port on local: 80
+# port on node server: 8080
+
+# docker compose creates the two containers (redis, node) 
+# both have free access to each other and can exchange 
+# as much information as they need
